@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Museum Mockup</title>
+
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.2/dist/aframe-layout-component.min.js"></script>
+
+    <script src="/script.js"></script>
+  </head>
+
+  <body>
+    <a-scene>
+      <a-assets timeout="30000">
+        <img
+          id="doorway"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2Fdoorframe.png?v=1585610380132"
+        />
+        <img
+          id="groundTexture"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2FMtKUX.jpg?v=1585609825770"
+        />
+        <img
+          id="img1"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2FWeb%201920%20%E2%80%93%201.png?v=1585609079521"
+        />
+        <img
+          id="img2"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2FWeb%201920%20%E2%80%93%202.png?v=1585609079698"
+        />
+        <img
+          id="img3"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2FWeb%201920%20%E2%80%93%203.png?v=1585609080015"
+        />
+        <img
+          id="img4"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2FWeb%201920%20%E2%80%93%204.png?v=1585609079268"
+        />
+        <img
+          id="img5"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2FWeb%201920%20%E2%80%93%205.png?v=1585609080225"
+        />
+        <img
+          id="img6"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2FWeb%201920%20%E2%80%93%206.png?v=1585609079168"
+        />
+        <img
+          id="bluepill"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2F71QnS06VU8JBopMyNOI8GBr.png?v=1585613413721"
+        />
+        <img
+          id="redpill"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/8053c80d-1517-464b-ad1a-4124b5ab66d0%2F3D-Objects-Sphere-John-Duffield-duffield-design-560x570.png?v=1585613422787"
+        />
+        <img
+          id="matrix"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/4993b9a9-e346-442d-b968-7c7ee5403a25%2Fmatrix-thumb.png?1520818486917"
+        />
+
+        <audio
+          id="glass-sound"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/4993b9a9-e346-442d-b968-7c7ee5403a25%2FGlass.mp3?1520806870361"
+        ></audio>
+        <audio
+          id="hero-sound"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/4993b9a9-e346-442d-b968-7c7ee5403a25%2FHero.mp3?1520806870396"
+        ></audio>
+        <audio
+          id="ping-sound"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/4993b9a9-e346-442d-b968-7c7ee5403a25%2FPing.mp3?1520806870747"
+        ></audio>
+
+        <video
+          id="redpill-video"
+          autoplay
+          loop="true"
+          crossorigin="anonymous"
+          src="https://media.giphy.com/media/jwE2jTw1I85ofr1lXV/giphy.mp4"
+        ></video>
+        <video
+          id="bluepill-video"
+          autoplay
+          loop="true"
+          crossorigin="anonymous"
+          src="https://media.giphy.com/media/l2SpTXlLhThF29ai4/giphy.mp4"
+        ></video>
+        <video
+          id="matrix-video"
+          autoplay
+          loop="true"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.com/4993b9a9-e346-442d-b968-7c7ee5403a25%2Fmatrix.mp4?1520809278075"
+        ></video>
+      </a-assets>
+
+      <a-text
+        value="Select a square to learn more"
+        position="-2.5 5.7 -5"
+        color="#000"
+        scale="1 1 1"
+      ></a-text>
+
+      <a-plane id="viewer" width="5" height="5" position="0 3 -5"></a-plane>
+
+      <a-entity layout="type: line; margin: 2" position="-1.75 1 -1.5">
+        <a-box
+          width=".5"
+          height=".5"
+          depth=".025"
+          rotation="0 15 0"
+          color="white"
+          src="#img1"
+          event-set__click="_target: #viewer; src: #img4"
+          event-set__enter="_event: mouseenter; scale: 1.5 1.5 1.5; "
+          event-set__leave="_event: mouseleave; scale: 1 1 1; "
+          sound="on: click; src: #glass-sound"
+        ></a-box>
+
+        <a-box
+          width=".5"
+          height=".5"
+          depth=".025"
+          color="white"
+          src="#img2"
+          event-set__click="_target: #viewer; src: #img5"
+          event-set__enter="_event: mouseenter; scale: 1.05 1.05 1.05;"
+          event-set__leave="_event: mouseleave; scale: 1 1 1;"
+          sound="on: click; src: #hero-sound"
+        ></a-box>
+
+        <a-box
+          width=".5"
+          height=".5"
+          depth=".025"
+          rotation="0 -15 0"
+          color="white"
+          src="#img3"
+          event-set__click="_target: #viewer; src: #img6"
+          event-set__enter="_event: mouseenter; scale: 1.5 1.5 1.5; "
+          event-set__leave="_event: mouseleave; scale: 1 1 1; "
+          sound="on: click; src: #ping-sound"
+        ></a-box>
+      </a-entity>
+
+      <a-curvedimage
+        id="doorway-button"
+        src="#doorway"
+        height="15"
+        width="6"
+        radius="10"
+        theta-start="0"
+        theta-length="45"
+        position="16 4.3 -2"
+        rotation="0 55 0"
+        scale=".8 .8 .8"
+        transparent="true"
+        handle-video
+      ></a-curvedimage>
+      
+      <a-curvedimage
+        id="doorway-button-three"
+        src="#doorway"
+        height="15"
+        width="6"
+        radius="10"
+        theta-start="0"
+        theta-length="45"
+        position="15 4.3 20"
+        rotation="0 55 0"
+        scale=".8 .8 .8"
+        transparent="true"
+        handle-video
+      ></a-curvedimage>
+      
+      <a-curvedimage
+        id="doorway-button-two"
+        src="#doorway"
+        height="15"
+        width="6"
+        radius="10"
+        theta-start="0"
+        theta-length="45"
+        position="-26 4.3 0"
+        rotation="0 225 0"
+        scale=".8 .8 .8"
+        transparent="true"
+        handle-video
+      ></a-curvedimage>
+      
+       <a-curvedimage
+        id="doorway-button-four"
+        src="#doorway"
+        height="15"
+        width="6"
+        radius="10"
+        theta-start="0"
+        theta-length="45"
+        position="-26 4.3 -20"
+        rotation="0 225 0"
+        scale=".8 .8 .8"
+        transparent="true"
+        handle-video
+      ></a-curvedimage>
+      
+      <a-curvedimage
+        id="bluepill-button"
+        src="#bluepill"
+        height="5"
+        width="5"
+        radius="6"
+        theta-start="0"
+        theta-length="45"
+        position="2 1 2.9"
+        rotation="0 25 0"
+        scale=".3 .3 .3"
+        transparent="true"
+        handle-video
+      ></a-curvedimage>
+
+      <a-curvedimage
+        id="reset-button"
+        src="#matrix"
+        height="3.25"
+        radius="6"
+        theta-start="0"
+        theta-length="45"
+        rotation="0 -25 0"
+        scale=".5 .5 .5"
+        handle-video
+      ></a-curvedimage>
+
+      <a-curvedimage
+        id="redpill-button"
+        src="#redpill"
+        height="5"
+        width="5"
+        radius="5"
+        theta-start="0"
+        theta-length="45"
+        position="-2 1 3"
+        rotation="0 -75 0"
+        scale=".3 .3 .3"
+        handle-video
+      ></a-curvedimage>
+
+      <a-video
+        id="videowall"
+        width="16"
+        height="9"
+        position="0 4.5 15"
+        rotation="0 180 0"
+      ></a-video>
+
+      <a-plane
+        src="#groundTexture"
+        position="0 0 -4"
+        rotation="-90 0 0"
+        width="50"
+        height="50"
+        shadow
+      ></a-plane>
+
+      <a-sky color="lightgray"></a-sky>
+
+      <a-camera position="0 1.5 0" look-controls>
+        <!-- default camera height location -->
+        <!-- position the cursor in front of objects -->
+        <!-- cursor has a 10 second timeout for auto click -->
+        <a-cursor position="0 0 -.5" fuse="true" timeout="10"></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
